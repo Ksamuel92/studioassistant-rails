@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_162850) do
+ActiveRecord::Schema.define(version: 2021_08_02_164612) do
 
-  create_table "sessions", force: :cascade do |t|
+  create_table "recsessions", force: :cascade do |t|
     t.integer "studio_id", null: false
     t.integer "client_id", null: false
     t.date "start_date"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_08_02_162850) do
     t.boolean "drums?"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_sessions_on_client_id"
-    t.index ["studio_id"], name: "index_sessions_on_studio_id"
+    t.index ["client_id"], name: "index_recsessions_on_client_id"
+    t.index ["studio_id"], name: "index_recsessions_on_studio_id"
   end
 
   create_table "studios", force: :cascade do |t|
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_162850) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "sessions", "clients"
-  add_foreign_key "sessions", "studios"
+  add_foreign_key "recsessions", "clients"
+  add_foreign_key "recsessions", "studios"
   add_foreign_key "studios", "users"
 end

@@ -1,0 +1,2 @@
+class RecSessionsController < ApplicationController
+end
