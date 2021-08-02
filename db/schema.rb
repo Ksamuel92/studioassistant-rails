@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_162644) do
+ActiveRecord::Schema.define(version: 2021_08_02_162850) do
 
   create_table "sessions", force: :cascade do |t|
     t.integer "studio_id", null: false
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2021_08_02_162644) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "rental_cost"
     t.text "description"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_studios_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,4 +51,5 @@ ActiveRecord::Schema.define(version: 2021_08_02_162644) do
 
   add_foreign_key "sessions", "clients"
   add_foreign_key "sessions", "studios"
+  add_foreign_key "studios", "users"
 end
