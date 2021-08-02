@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_164612) do
+ActiveRecord::Schema.define(version: 2021_08_02_173707) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "genre"
+    t.integer "budget"
+    t.boolean "band?"
+    t.boolean "drums?"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "recsessions", force: :cascade do |t|
     t.integer "studio_id", null: false
@@ -18,10 +29,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_164612) do
     t.date "start_date"
     t.date "end_date"
     t.integer "hours_per_day"
-    t.string "genre"
-    t.integer "budget"
-    t.boolean "band?"
-    t.boolean "drums?"
+    t.integer "per_hour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_recsessions_on_client_id"

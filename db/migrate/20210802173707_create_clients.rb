@@ -3,6 +3,10 @@ class CreateClients < ActiveRecord::Migration[6.1]
     create_table :clients do |t|
       t.string :name
       t.string :email
+      t.string :genre
+      t.integer :budget
+      t.boolean :band?
+      t.boolean :drums?
 
       t.timestamps
     end

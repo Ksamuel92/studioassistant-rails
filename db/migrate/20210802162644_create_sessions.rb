@@ -6,10 +6,7 @@ class CreateSessions < ActiveRecord::Migration[6.1]
       t.date :start_date
       t.date :end_date
       t.integer :hours_per_day
-      t.string :genre
-      t.integer :budget
-      t.boolean :band?
-      t.boolean :drums?
+      t.integer :per_hour
 
       t.timestamps
     end
