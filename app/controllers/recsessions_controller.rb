@@ -20,12 +20,10 @@ class RecSessionsController < ApplicationController
     end
   end
 
-  def show
-
+  def show 
   end
 
   def edit
-
   end
   
   def update
@@ -39,7 +37,7 @@ class RecSessionsController < ApplicationController
   private
 
   def recsession_params
-    params.require(:recsession).permit(:name, :address, :daw, :type)
+    params.require(:recsession).permit(:start_date, :end_date, :hours_per_day, :band?, :drums?, :genre, :budget)
   end
 
   def set_recsession

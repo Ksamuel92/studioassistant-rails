@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clients
   resources :studios do
   resources :sessions, shallow: true
   end
