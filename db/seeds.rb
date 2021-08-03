@@ -7,9 +7,36 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user = User.create(name: 'John Doe', email: 'john@example.com', password: 'ohyeah')
-studio = Studio.create(name: 'Studio', email: 'studio@example.com',)
+user = User.create(
+  name: 'John Doe', 
+  email: 'john@example.com', 
+  password: 'ohyeah'
+)
 
+ studio = user.studios.build(
+  name: 'Studio',
+  email: 'studio@example.com',
+  address: '123 jump street',
+  daw: 'ableton live',
+  type: 'Studio'
+)
+client = Client.create(
+  name: 'Client Samuel',
+  email: 'client@example.com',
+  genre: 'Rock',
+  budget: '3000',
+  band?: true,
+  drums?: true
+)
+
+recsession = RecSession.create(
+  studio_id: studio.id,
+  client: client.id, 
+  start_date: Date.new(2021,2,3),
+  end_date: Date.new(2021,2,5),
+  hours_per_day: 6,
+  per_hour: '300'
+)
 
 
 # ActiveRecord::Schema.define(version: 2021_08_03_145459) do
