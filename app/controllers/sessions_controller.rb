@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(request.env['omniauth.auth'])
     if user.valid?
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to root_path
     else
       redirect_to '/login'
     end
@@ -23,6 +23,10 @@ class SessionsController < ApplicationController
       flash[:error] = 'Invalid Name or Password'
       render 'new'
     end
+  end
+
+  def destroy
+    session.destroy(:user_id)
   end
 
 end
