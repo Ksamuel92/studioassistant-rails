@@ -12,13 +12,16 @@ user = User.create(
   email: 'john@example.com', 
   password: 'ohyeah'
 )
-
- studio = user.studios.build(
+#:name, :address, :description, :rental_cost, :type
+ studio = Studio.create(
   name: 'Studio',
   email: 'studio@example.com',
   address: '123 jump street',
   daw: 'ableton live',
-  type: 'Studio'
+  description: 'a studio',
+  type: 'Studio',
+  rental_cost: 300,
+  user_id: user.id
 )
 client = Client.create(
   name: 'Client Samuel',
