@@ -14,9 +14,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(name: params[:name])
-    if @user&.authenticate(params[:password])
-    sessions[:user_id] = @user.id
+    # byebugex
+    @user = User.find_by(email: params[:user][:email])
+    if @user&.authenticate(params[:user][:password])
+    session[:user_id] = @user.id
     redirect_to '/'
     else
       flash[:error] = 'Invalid Name or Password'
