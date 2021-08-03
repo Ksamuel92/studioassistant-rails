@@ -34,7 +34,7 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:studio).permit(:name, :address, :daw, :type)
+    params.require(:studio).permit(:name, :email, :address, :daw, :type)
   end
 
   def set_studio
