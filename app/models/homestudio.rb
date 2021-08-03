@@ -1,0 +1,2 @@
+class HomeStudio < Studio
+end
