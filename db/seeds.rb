@@ -29,9 +29,9 @@ client = Client.create(
   drums?: true
 )
 
-recsession = RecSession.create(
+recsession = Recordingsession.create(
   studio_id: studio.id,
-  client: client.id, 
+  client_id: client.id, 
   start_date: Date.new(2021,2,3),
   end_date: Date.new(2021,2,5),
   hours_per_day: 6,

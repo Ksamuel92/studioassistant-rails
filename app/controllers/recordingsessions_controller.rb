@@ -1,4 +1,4 @@
-class RecordingSessionsController < ApplicationController
+class RecordingsessionsController < ApplicationController
   before_action :set_recordingsession, except: [:new, :create]
   def index
     # @recordingsessions = List of all Users recordingsessions
