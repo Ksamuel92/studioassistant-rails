@@ -14,4 +14,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def home
+  end
 end
