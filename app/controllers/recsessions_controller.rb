@@ -8,7 +8,6 @@ class RecSessionsController < ApplicationController
     @recsession = RecSession.new
   end
 
- 
   def create
     recsession = RecSession.new(recsession_params)
     if recsession.valid? 

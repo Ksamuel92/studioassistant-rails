@@ -8,7 +8,6 @@ class StudiosController < ApplicationController
     @studio = Studio.new
   end
 
- 
   def create
     studio = Studio.new(studio_params)
     if studio.valid? 
@@ -21,19 +20,15 @@ class StudiosController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
   end
   
   def update
-
   end
 
   def destroy
-
   end
 
   private
