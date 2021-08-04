@@ -1,19 +1,16 @@
-class RecordingsessionsController < ApplicationController
+class RecordingSessionsController < ApplicationController
   before_action :set_recordingsession, except: [:new, :create]
   def index
   end
 
-  def new
+ def new
+    @recordingsession = RecordingSession.new
+    @recordingsession.build_client
     # byebug
-    if params[:studio_id] && (@studio = Studio.find_by_id(params[:studio_id]))
-      @recordingsession = @studio.recordingsessions.build
-      @client = @recordingsession.build_client
-      render 'recordingsessions/new'
-    end
   end
 
   def create
-    recordingsession = Recordingsession.new(recordingsession_params)
+    recordingsession = RecordingSession.new(recordingsession_params)
     byebug
     if recordingsession.valid?
       recordingsession.save

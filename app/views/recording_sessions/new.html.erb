@@ -1,4 +1,4 @@
-<%= form_for(@recordingsession, url: studio_recordingsessions_path) do |f| %>
+<%= form_for(@recordingsession, url: studio_recording_sessions_path) do |f| %>
 <%= f.label :start_date %>
 <%= f.date_field :start_date %></br>
 <%= f.label :end_date %>
@@ -8,7 +8,7 @@
 <%= f.label :per_hour %>
 <%= f.text_field :per_hour%></br>
     Client Information: </br>
-<%= f.fields_for @client do |client_field| %>
+<%= f.fields_for :client do |client_field| %>
   <%= client_field.label :name %>
   <%= client_field.text_field :name%></br>
   <%= client_field.label :email %>

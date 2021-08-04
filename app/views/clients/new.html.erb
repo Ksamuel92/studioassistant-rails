@@ -1,4 +1,4 @@
-<%= form_for([@studio, @client]) do |f| %>
+<%= form_for(@client, url: studio_clients_path) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name%></br>
 <%= f.label :email %>
@@ -12,15 +12,15 @@
 <%= f.label :drums %>
 <%= f.check_box :drums %></br>
 Session Information: </br>
-<%= f.fields_for @recordingsession do |session_field| %>
-  <%= session_field.label :start_date %>
-  <%= session_field.date_field :start_date %></br>
-  <%= session_field.label :end_date %>
-  <%= session_field.date_field :end_date%></br>
-  <%= session_field.label :hours_per_day %>
-  <%= session_field.text_field :hours_per_day%></br>
-  <%= session_field.label :per_hour %>
-  <%= session_field.text_field :per_hour %></br>
+<%= f.fields_for :recording_sessions do |session_form| %>
+  <%= session_form.label :start_date %>
+  <%= session_form.date_field :start_date %></br>
+  <%= session_form.label :end_date %>
+  <%= session_form.date_field :end_date%></br>
+  <%= session_form.label :hours_per_day %>
+  <%= session_form.text_field :hours_per_day%></br>
+  <%= session_form.label :per_hour %>
+  <%= session_form.text_field :per_hour %></br>
 <% end %> 
 <%= f.submit %>
 <% end %>

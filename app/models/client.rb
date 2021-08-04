@@ -1,6 +1,14 @@
 class Client < ApplicationRecord
-  has_many :recordingsessions
-  has_many :studios, through: :recordingsessions
+  has_many :recording_sessions, inverse_of: :client
+  has_many :studios, through: :recording_sessions
   validates_presence_of :name, :email
-  accepts_nested_attributes_for :recordingsessions
+
+
+  def recording_sessions_attributes=(attributes)
+    attributes.each do |_key, value|
+      session = RecordingSession.create(value)
+      session.client = self
+    end
+
+  end
 end

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/confirm', to: 'static#landing_page'
+  # get '/confirm', to: 'static#landing_page'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :studios do
-    resources :clients, shallow: true
+    resources :recording_sessions, shallow: true, path: :recordingsessions
+    get '/confirm', to: 'static#landing_page'
   end
-  resources :recordingsessions, only: [:index]
+  resources :recording_sessions, only: [:index]
 end

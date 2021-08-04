@@ -1,14 +1,14 @@
 class ClientsController < ApplicationController
+  before_action :set_studio, only: [:create, :new]
   def new
-    if params[:studio_id] && (@studio = Studio.find_by_id(params[:studio_id]))
-      @client = @studio.clients.build
-      @recordingsession = @client.recordingsessions.build
-    end
+    @client = Client.new
+    @client.recording_sessions.build
+    # byebug
   end
 
   def create
-    byebug
     client = Client.new(client_params)
+    byebug
     if client.valid?
       client.save
       redirect_to '/'
@@ -18,11 +18,21 @@ class ClientsController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def client_params
     params.require(:client).permit(
-      :name, :email, :genre, :budget, :band, :drums, 
-      recordingsessions_attributes: [:start_date, :end_date, :hours_per_day, :per_hour])
+      :name,
+      :email,
+      :genre,
+      :budget,
+      :band,
+      :drums,
+      recording_sessions_attributes: [:studio_id, :client_id, :id, :start_date, :end_date, :hours_per_day, :per_hour]
+    )
+  end
+
+  def set_studio
+    @studio = Studio.find(params[:studio_id])
   end
 end
