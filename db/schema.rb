@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_161029) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "recordingsessions", force: :cascade do |t|
+  create_table "recording_sessions", force: :cascade do |t|
     t.integer "studio_id", null: false
     t.integer "client_id", null: false
     t.date "start_date"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2021_08_04_161029) do
     t.integer "per_hour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_recordingsessions_on_client_id"
-    t.index ["studio_id"], name: "index_recordingsessions_on_studio_id"
+    t.index ["client_id"], name: "index_recording_sessions_on_client_id"
+    t.index ["studio_id"], name: "index_recording_sessions_on_studio_id"
   end
 
   create_table "studios", force: :cascade do |t|
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_08_04_161029) do
     t.string "provider"
   end
 
-  add_foreign_key "recordingsessions", "clients"
-  add_foreign_key "recordingsessions", "studios"
+  add_foreign_key "recording_sessions", "clients"
+  add_foreign_key "recording_sessions", "studios"
   add_foreign_key "studios", "users"
 end

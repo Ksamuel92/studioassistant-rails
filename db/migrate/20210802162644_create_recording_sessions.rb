@@ -1,6 +1,6 @@
 class CreateRecordingSessions < ActiveRecord::Migration[6.1]
   def change
-    create_table :recordingsessions do |t|
+    create_table :recording_sessions do |t|
       t.belongs_to :studio, null: false, foreign_key: true
       t.belongs_to :client, null: false, foreign_key: true
       t.date :start_date

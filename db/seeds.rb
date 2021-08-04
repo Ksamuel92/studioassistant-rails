@@ -28,11 +28,11 @@ client = Client.create(
   email: 'client@example.com',
   genre: 'Rock',
   budget: '3000',
-  band?: true,
-  drums?: true
+  band: true,
+  drums: true
 )
 
-recsession = Recordingsession.create(
+recsession = RecordingSession.create(
   studio_id: studio.id,
   client_id: client.id, 
   start_date: Date.new(2021,2,3),
