@@ -4,14 +4,20 @@ class RecordingsessionsController < ApplicationController
   end
 
   def new
-    @recordingsession = RecordingSession.new
+    # byebug
+    if params[:studio_id] && (@studio = Studio.find_by_id(params[:studio_id]))
+      @recordingsession = @studio.recordingsessions.build
+      @client = @recordingsession.build_client
+      render 'recordingsessions/new'
+    end
   end
 
   def create
-    recordingsession = RecordingSession.new(recordingsession_params)
+    recordingsession = Recordingsession.new(recordingsession_params)
+    byebug
     if recordingsession.valid?
       recordingsession.save
-      redirect_to recordingsession_path(recordingsession)
+      redirect_to '/'
     else
       flash[:alert] = "Make sure to fill out all fields."
       render :new
@@ -35,10 +41,9 @@ class RecordingsessionsController < ApplicationController
   private
 
   def recordingsession_params
-    params.require(:recordingsession).permit(:start_date, :end_date, :hours_per_day, :band?, :drums?, :genre, :budget)
   end
 
   def set_recordingsession
-    @recordingsession = RecordingSession.find(params[:id])
+    @recordingsession = Recordingsession.find(params[:id])
   end
 end
