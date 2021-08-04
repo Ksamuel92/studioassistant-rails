@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get '/confirm', to: 'static#landing_page'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :studios do
     resources :recordingsessions, shallow: true
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :recordingsessions, only: [:index]
 end
