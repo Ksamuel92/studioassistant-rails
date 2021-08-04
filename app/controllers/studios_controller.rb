@@ -1,4 +1,7 @@
 class StudiosController < ApplicationController
+  before_action :require_login
+  before_action :set_studio, except: [:new, :create]
+
   def index
     # @studios = List of all Users Studios
   end
@@ -20,6 +23,7 @@ class StudiosController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -34,7 +38,7 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:studio).permit(:name, :email, :address, :user_id, :daw, :rental_cost)
+    params.require(:studio).permit(:name, :email, :description, :address, :user_id, :daw, :rental_cost)
   end
 
   def set_studio
