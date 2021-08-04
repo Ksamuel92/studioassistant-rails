@@ -1,9 +1,9 @@
 class StudiosController < ApplicationController
   before_action :require_login
-  before_action :set_studio, except: [:new, :create]
+  before_action :set_studio, except: [:new, :create, :index]
 
   def index
-    # @studios = List of all Users Studios
+   @studios = current_user.studios
   end
 
   def new
@@ -15,9 +15,9 @@ class StudiosController < ApplicationController
     studio.user_id = session[:user_id]
     if studio.valid?
       studio.save
-      redirect_to studio_path(studio)
+      redirect_to confirm_path
     else
-      flash[:alert] = "Make sure to fill out all fields."
+      flash[:alert] = 'Make sure to fill out all fields.'
       render :new
     end
   end
