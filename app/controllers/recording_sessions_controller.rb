@@ -1,6 +1,8 @@
 class RecordingSessionsController < ApplicationController
-  before_action :set_recordingsession, except: [:new, :create]
+  before_action :require_login
+  before_action :set_recordingsession, except: [:new, :create, :index]
   def index
+  @studios = current_user.studios
   end
 
  def new
@@ -14,7 +16,7 @@ class RecordingSessionsController < ApplicationController
     # byebug
     if recordingsession.valid?
       recordingsession.save
-      redirect_to '/'
+      redirect_to recording_sessions_path
     else
       flash[:alert] = "Make sure to fill out all fields."
       render :new
