@@ -1,7 +1,7 @@
 module ClientsHelper
     
     def band_helper(client)
-        client.band ? "The client is bringing their own band" : "The client will not be providing musicians."
+        client.band ? content_tag(:p, "The client is bringing their own band") :content_tag(:p, "The client will not be providing musicians.")
     end
 
 

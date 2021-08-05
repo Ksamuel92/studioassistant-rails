@@ -1,10 +1,15 @@
 module StudiosHelper
+
     def rental_cost_helper(studio)
         if studio.rental_cost = 0
             nil
         else
-            "Rental Cost: #{studio.rental_cost}"
+            content_tag(:li, "Rental Cost: #{studio.rental_cost}")
         end
+    end
+
+    def studio_address_helper(studio)
+        content_tag(:div, "#{studio.address_line_1} #{studio.address_line_2} #{studio.city} #{studio.state} #{studio.zip_code}")
     end
 
     def us_states
