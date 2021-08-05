@@ -16,7 +16,11 @@ user = User.create(
  studio = Studio.create(
   name: 'Studio',
   email: 'studio@example.com',
-  address: '123 jump street',
+  address_line_1: '123 jump street',
+  address_line_2: 'P.0 Box',
+  city: 'Richmond',
+  state: 'Virginia',
+  zip_code: '23231',
   daw: 'ableton live',
   description: 'a studio',
   type: 'Studio',
