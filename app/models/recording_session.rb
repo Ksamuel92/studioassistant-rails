@@ -20,7 +20,9 @@ class RecordingSession < ApplicationRecord
   accepts_nested_attributes_for :client
 
   def client_attributes=(attributes)
-      self.client = Client.find_or_create_by(attributes)
+      byebug
+      client = Client.find_or_create_by(attributes)
+      self.client = client
     end
 
     def days_available_by_budget
