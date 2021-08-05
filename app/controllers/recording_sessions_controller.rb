@@ -30,7 +30,14 @@ class RecordingSessionsController < ApplicationController
   end
   
   def update
-
+    @recordingsession.update(recordingsession_params)
+    if @recordingsession.valid?
+        flash[:notice] = "Session Sucessfully Updated"
+        render :show
+    else
+      flash[:notice] = "Invalid Update"
+      render :edit
+    end
   end
 
   def destroy
