@@ -1,6 +1,23 @@
 <h2>Your Session</h2>
+
+<h5> Studio </h5>
+<ul>
+ Name: <%= @recordingsession.studio.name %> </br>
+ Address: <%= @recordingsession.studio.address %> </br>
+ DAW: <%= @recordingsession.studio.daw %> </br>
+ <%= rental_cost_helper(@recordingsession.studio) %> </br>
+ Email: <%= @recordingsession.studio.email %> </br>
+
+
 <p> Your client, <%= @recordingsession.client.name %>, is a <%= @recordingsession.client.genre%> artist. </p>
+<p> You're charging the client <%=number_to_currency(@recordingsession.per_hour)%> per hour for <%= hours_per_day_helper(@recordingsession) %>. 
+Given their budget is <%= @recordingsession.client.budget %>, they have <%= @recordingsession.days_available_by_budget %> for their session.
+If that doesn't seem right, you can email <%= @recordingsession.client.name %> at <%= @recordingsession.client.email %>
+
+The session starts on <%= @recordingsession.start_date %> and is currently scheduled to end at <%= @recordingsession.end_date %>.
 <%= band_helper(@recordingsession.client) %>
-<%= drum_helper(@recordingsession.client) %>
-<p> You're charging the client <%=@recordingsession.per_hour%> per hour for <%= @recordingsession.hours_per_day%>. 
-Given their budget is <%= @recordingsession.client.budget %>, they have
+<%= drums_helper(@recordingsession.client) %>
+
+
+
+
