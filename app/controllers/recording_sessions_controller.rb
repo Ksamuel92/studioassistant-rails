@@ -48,6 +48,6 @@ class RecordingSessionsController < ApplicationController
   end
 
   def set_recordingsession
-    @recordingsession = Recordingsession.find(params[:id])
+    @recordingsession = RecordingSession.find(params[:id])
   end
 end
