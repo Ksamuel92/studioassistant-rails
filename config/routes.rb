@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # get '/confirm', to: 'static#landing_page'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :studios do
-    resources :recording_sessions, shallow: true, path: :recordingsessions
     get '/confirm', to: 'static#landing_page'
+    resources :recording_sessions, shallow: true, path: :recordingsessions
   end
-  resources :recording_sessions, only: [:index]
+  resources :recording_sessions, only: [:index], path: :recordingsessions
 end
