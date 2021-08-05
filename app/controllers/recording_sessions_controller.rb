@@ -11,6 +11,7 @@ class RecordingSessionsController < ApplicationController
 
   def create
     recordingsession = RecordingSession.new(recordingsession_params)
+    recordingsession.studio_id = params[:studio_id]
     byebug
     if recordingsession.valid?
       recordingsession.save
@@ -38,6 +39,13 @@ class RecordingSessionsController < ApplicationController
   private
 
   def recordingsession_params
+    params.require(:recording_session).permit(
+      :start_date,
+      :end_date,
+      :hours_per_day,
+      :per_hour,
+      client_attributes: [:id, :name, :email, :genre, :budget, :band, :drums]
+    )
   end
 
   def set_recordingsession
