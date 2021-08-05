@@ -3,7 +3,7 @@
 <h5> Studio </h5>
 <ul>
  Name: <%= @recordingsession.studio.name %> </br>
- Address: <%= @recordingsession.studio.address %> </br>
+ Address: <%= studio_address_helper(@recordingsession.studio) %> </br>
  DAW: <%= @recordingsession.studio.daw %> </br>
  <%= rental_cost_helper(@recordingsession.studio) %> </br>
  Email: <%= @recordingsession.studio.email %> </br>
@@ -18,6 +18,6 @@ The session starts on <%= @recordingsession.start_date %> and is currently sched
 <%= band_helper(@recordingsession.client) %>
 <%= drums_helper(@recordingsession.client) %>
 
-
+<%= link_to "Edit Session", edit_recording_session_path%>
 
 
