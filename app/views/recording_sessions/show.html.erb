@@ -1,0 +1,6 @@
+<h2>Your Session</h2>
+<p> Your client, <%= @recordingsession.client.name %>, is a <%= @recordingsession.client.genre%> artist. </p>
+<%= band_helper(@recordingsession.client) %>
+<%= drum_helper(@recordingsession.client) %>
+<p> You're charging the client <%=@recordingsession.per_hour%> per hour for <%= @recordingsession.hours_per_day%>. 
+Given their budget is <%= @recordingsession.client.budget %>, they have

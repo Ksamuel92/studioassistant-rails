@@ -6,13 +6,12 @@ class RecordingSessionsController < ApplicationController
  def new
     @recordingsession = RecordingSession.new
     @recordingsession.build_client
-    # byebug
   end
 
   def create
     recordingsession = RecordingSession.new(recordingsession_params)
     recordingsession.studio_id = params[:studio_id]
-    byebug
+    # byebug
     if recordingsession.valid?
       recordingsession.save
       redirect_to '/'
