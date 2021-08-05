@@ -4,11 +4,11 @@ class Client < ApplicationRecord
   validates_presence_of :name, :email
 
 
-  def recording_sessions_attributes=(attributes)
-    attributes.each do |_key, value|
-      session = RecordingSession.create(value)
-      session.client = self
-    end
 
-  end
+  # def recording_sessions_attributes=(attributes)
+  #   attributes.each do |_key, value|
+  #     session = RecordingSession.create(value)
+  #     session.client = self
+  #   end
+
 end
