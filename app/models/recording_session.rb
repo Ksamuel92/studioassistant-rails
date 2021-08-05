@@ -23,4 +23,9 @@ class RecordingSession < ApplicationRecord
       self.client = Client.find_or_create_by(attributes)
     end
 
+    def days_available_by_budget
+     num = client.budget/(hours_per_day * per_hour) 
+     ActionController::Base.helpers.pluralize(num, 'day')
+    end
+
 end
