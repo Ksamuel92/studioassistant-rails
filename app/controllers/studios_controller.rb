@@ -15,7 +15,7 @@ class StudiosController < ApplicationController
     studio.user_id = session[:user_id]
     if studio.valid?
       studio.save
-      redirect_to confirm_path
+      redirect_to studio_confirm_path(studio)
     else
       flash[:alert] = 'Make sure to fill out all fields.'
       render :new
