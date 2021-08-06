@@ -1,13 +1,12 @@
-<%= @studio.name %>
-<%= studio_address_helper(@studio) %>
-<%= @studio.daw %>
-<%= @studio.email %>
+<h2> <%= @studio.name %> </h2>
+<ul> 
+    <li> Email:  <%= @studio.email %> </li> 
+    <li> Address: <%= studio_address_helper(@studio) %> </li> 
+    <li>DAW:  <%= @studio.daw %> </li> 
+    <%= li_rental_cost_helper(@studio) %> 
+    <%= li_description_helper(@studio) %> 
+</ul>
 
-
-
-
-
-
-
+<%= link_to "Edit Studio", edit_studio_path(@studio)%>
 
 
