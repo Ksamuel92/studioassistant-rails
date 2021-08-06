@@ -30,6 +30,15 @@ class StudiosController < ApplicationController
   end
   
   def update
+    # byebug
+    @studio.update(studio_params)
+    if @studio.valid?
+        flash[:notice] = "Studio Sucessfully Updated"
+        redirect_to studio_path(@studio)
+    else
+      flash[:notice] = "Invalid Update"
+      render :edit
+    end
   end
 
   def destroy
