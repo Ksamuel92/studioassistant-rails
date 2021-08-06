@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :studios
-  # has_many :recording_sessions, through: :studios
-  validates_presence_of :name
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
   has_secure_password
 
   def self.from_omniauth(response)
