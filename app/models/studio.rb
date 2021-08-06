@@ -15,7 +15,7 @@
 
 
 class Studio < ApplicationRecord
-  has_many :recording_sessions
+  has_many :recording_sessions, dependent: :destroy
   has_many :clients, through: :recording_sessions
   belongs_to :user
 
