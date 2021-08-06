@@ -3,6 +3,7 @@ class RecordingSession < ApplicationRecord
   belongs_to :client
   validates_presence_of :start_date, :end_date, :hours_per_day, :per_hour
   accepts_nested_attributes_for :client
+  scope :this_week, -> {where(start_date: Time.now..7.days.from_now)}
 
   def client_attributes=(attributes)
     if !attributes[:id].blank?
@@ -17,4 +18,5 @@ class RecordingSession < ApplicationRecord
     num = client.budget/(hours_per_day * per_hour)
     ActionController::Base.helpers.pluralize(num, 'day')
   end
+
 end

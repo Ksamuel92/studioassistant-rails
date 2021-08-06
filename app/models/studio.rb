@@ -18,4 +18,6 @@ class Studio < ApplicationRecord
   has_many :recording_sessions
   has_many :clients, through: :recording_sessions
   belongs_to :user
+
+  
 end
