@@ -12,7 +12,6 @@ class RecordingSessionsController < ApplicationController
 end
 
   def create
-    # byebug
     @recordingsession = RecordingSession.new(recordingsession_params)
     @studio = Studio.find_or_create_by(params[:studio_id])
     if @recordingsession.valid?
@@ -33,6 +32,7 @@ end
   end
   
   def update
+    # byebug
     @recordingsession.update(recordingsession_params)
     if @recordingsession.valid?
         flash[:notice] = "Session Sucessfully Updated"

@@ -8,7 +8,6 @@ class RecordingSession < ApplicationRecord
     if !attributes[:name].blank?
       client = Client.find_by(email: attributes[:email])
       client.update(attributes)
-      
     else
       self.client = Client.find_or_create_by(attributes)
     end

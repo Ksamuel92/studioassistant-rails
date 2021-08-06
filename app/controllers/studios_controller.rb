@@ -11,10 +11,10 @@ class StudiosController < ApplicationController
   end
 
   def create
-    studio = Studio.new(studio_params)
-    studio.user_id = session[:user_id]
-    if studio.valid?
-      studio.save
+    @studio = Studio.new(studio_params)
+    @studio.user_id = session[:user_id]
+    if @studio.valid?
+      @studio.save
       redirect_to studio_confirm_path(studio)
     else
       flash[:alert] = 'Make sure to fill out all fields.'

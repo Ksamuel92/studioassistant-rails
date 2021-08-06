@@ -10,7 +10,7 @@
 <%= f.label :per_hour %>
 <%= f.text_field :per_hour%></br>
     Client Information: </br>
-<%= f.fields_for :client do |client_field| %>
+<%= f.fields_for :client, @recordingsession.client do |client_field| %>
   <%= client_field.label :name %>
   <%= client_field.text_field :name%></br>
   <%= client_field.label :email %>
