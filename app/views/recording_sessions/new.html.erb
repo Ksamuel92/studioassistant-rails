@@ -1,4 +1,5 @@
-<%= form_for(@recordingsession, url: studio_recording_sessions_path) do |f| %>
+<%= form_for([@studio, @recordingsession]) do |f| %>
+<%= f.hidden_field :studio_id, value: @studio.id %>
 <%= f.label :start_date %>
 <%= f.date_field :start_date %></br>
 <%= f.label :end_date %>

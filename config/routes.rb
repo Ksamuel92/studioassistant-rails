@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   resources :studios do
     get '/confirm', to: 'static#landing_page'
-    resources :recording_sessions, shallow: true, path: :recordingsessions
+    resources :recording_sessions, only: [:index, :create, :new, :edit, :update], path: :recordingsessions
   end
   resources :recording_sessions, only: [:index], path: :recordingsessions
 end

@@ -7,43 +7,43 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user = User.create(
-  name: 'John Doe', 
-  email: 'john@example.com', 
-  password: 'ohyeah'
-)
-#:name, :address, :description, :rental_cost, :type
- studio = Studio.create(
-  name: 'Studio',
-  email: 'studio@example.com',
-  address_line_1: '123 jump street',
-  address_line_2: 'P.0 Box',
-  city: 'Richmond',
-  state: 'Virginia',
-  zip_code: '23231',
-  daw: 'ableton live',
-  description: 'a studio',
-  type: 'Studio',
-  rental_cost: 300,
-  user_id: user.id
-)
-client = Client.create(
-  name: 'Client Samuel',
-  email: 'client@example.com',
-  genre: 'Rock',
-  budget: '3000',
-  band: true,
-  drums: true
-)
+# user = User.create(
+#   name: 'John Doe', 
+#   email: 'john@example.com', 
+#   password: 'ohyeah'
+# )
+# #:name, :address, :description, :rental_cost, :type
+#  studio = Studio.create(
+#   name: 'Studio',
+#   email: 'studio@example.com',
+#   address_line_1: '123 jump street',
+#   address_line_2: 'P.0 Box',
+#   city: 'Richmond',
+#   state: 'Virginia',
+#   zip_code: '23231',
+#   daw: 'ableton live',
+#   description: 'a studio',
+#   type: 'Studio',
+#   rental_cost: 300,
+#   user_id: user.id
+# )
+# client = Client.create(
+#   name: 'Client Samuel',
+#   email: 'client@example.com',
+#   genre: 'Rock',
+#   budget: '3000',
+#   band: true,
+#   drums: true
+# )
 
-recsession = RecordingSession.create(
-  studio_id: studio.id,
-  client_id: client.id, 
-  start_date: Date.new(2021,2,3),
-  end_date: Date.new(2021,2,5),
-  hours_per_day: 6,
-  per_hour: '300'
-)
+# recsession = RecordingSession.create(
+#   studio_id: studio.id,
+#   client_id: client.id, 
+#   start_date: Date.new(2021,2,3),
+#   end_date: Date.new(2021,2,5),
+#   hours_per_day: 6,
+#   per_hour: '300'
+# )
 
 
 # ActiveRecord::Schema.define(version: 2021_08_03_145459) do
