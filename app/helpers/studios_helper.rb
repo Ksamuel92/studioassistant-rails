@@ -1,15 +1,23 @@
 module StudiosHelper
 
-    def rental_cost_helper(studio)
-        if studio.rental_cost = 0
-            nil
+    def li_rental_cost_helper(studio)
+        if studio.rental_cost == 0
+            content_tag(:li, "Rental Cost: Free")
         else
-            content_tag(:li, "Rental Cost: #{studio.rental_cost}")
+            content_tag(:li, "Rental Cost: #{number_to_currency(studio.rental_cost)}")
+        end
+    end
+
+    def li_description_helper(studio)
+        if !studio.description.blank?
+            content_tag(:li, "#{studio.description}")
+        else
+            content_tag(:li, "No Description Provided")
         end
     end
 
     def studio_address_helper(studio)
-        content_tag(:div, "#{studio.address_line_1} #{studio.address_line_2} #{studio.city} #{studio.state} #{studio.zip_code}")
+        content_tag(:div, "#{studio.address_line_1}, #{studio.address_line_2} #{studio.city}, #{studio.state}, #{studio.zip_code}")
     end
 
     def us_states
