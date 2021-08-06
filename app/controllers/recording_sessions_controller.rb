@@ -11,11 +11,11 @@ class RecordingSessionsController < ApplicationController
   end
 
   def create
-    recordingsession = RecordingSession.new(recordingsession_params)
-    recordingsession.studio_id = params[:studio_id]
+    @recordingsession = RecordingSession.new(recordingsession_params)
+    @recordingsession.studio_id = params[:studio_id]
     # byebug
-    if recordingsession.valid?
-      recordingsession.save
+    if @recordingsession.valid?
+      @recordingsession.save
       redirect_to recording_sessions_path
     else
       flash[:alert] = "Make sure to fill out all fields."
@@ -30,6 +30,7 @@ class RecordingSessionsController < ApplicationController
   end
   
   def update
+    # byebug
     @recordingsession.update(recordingsession_params)
     if @recordingsession.valid?
         flash[:notice] = "Session Sucessfully Updated"
