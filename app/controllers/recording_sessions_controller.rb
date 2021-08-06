@@ -28,10 +28,11 @@ end
   end
 
   def edit
+    @studio = Studio.find_by(params[:studio_id])
+    @recordingsession = RecordingSession.find_by(id: params[:id])
   end
   
   def update
-    byebug
     @recordingsession.update(recordingsession_params)
     if @recordingsession.valid?
         flash[:notice] = "Session Sucessfully Updated"

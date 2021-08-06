@@ -1,4 +1,6 @@
 <%= form_for([@studio, @recordingsession]) do |f| %>
+<%= f.hidden_field :studio_id, value: @studio.id %>
+<%= f.hidden_field :client_id, value: @recordingsession.client.id%>
 <%= f.label :start_date %>
 <%= f.date_field :start_date %></br>
 <%= f.label :end_date %>

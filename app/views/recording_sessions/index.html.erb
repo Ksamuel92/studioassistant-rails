@@ -1,8 +1,8 @@
 <ul>
 <% @studios.each do |studio| %>
     <li> <%= link_to studio.name, studio_path(studio) %> - <%= studio.email %> </li>
-<% studio.recording_sessions.each do |session| %>
-        <li> <%= link_to "Session with #{session.client.name}", recording_sessions_path(session) %> </li>
+<% studio.recording_sessions.each do |rsession| %>
+        <li> <%= link_to "Session with #{rsession.client.name}", edit_studio_recording_session_path(rsession.studio, rsession.id) %> </li>
     <% end %>
 <% end %>
 </ul>

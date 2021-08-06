@@ -1,18 +1,3 @@
-# create_table "recordingsessions", force: :cascade do |t|
-#   t.integer "studio_id", null: false
-#   t.integer "client_id", null: false
-#   t.date "start_date"
-#   t.date "end_date"
-#   t.integer "hours_per_day"
-#   t.integer "per_hour"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.index ["client_id"], name: "index_recordingsessions_on_client_id"
-#   t.index ["studio_id"], name: "index_recordingsessions_on_studio_id"
-# end
-
-
-
 class RecordingSession < ApplicationRecord
   belongs_to :studio
   belongs_to :client
@@ -20,12 +5,17 @@ class RecordingSession < ApplicationRecord
   accepts_nested_attributes_for :client
 
   def client_attributes=(attributes)
+    if !attributes[:name].blank?
+      client = Client.find_by(email: attributes[:email])
+      client.update(attributes)
+      
+    else
       self.client = Client.find_or_create_by(attributes)
     end
+  end
 
-    def days_available_by_budget
-     num = client.budget/(hours_per_day * per_hour) 
-     ActionController::Base.helpers.pluralize(num, 'day')
-    end
-
+  def days_available_by_budget
+    num = client.budget/(hours_per_day * per_hour)
+    ActionController::Base.helpers.pluralize(num, 'day')
+  end
 end
