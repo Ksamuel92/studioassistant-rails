@@ -13,7 +13,8 @@ before_action :require_login, only: [:show]
     if @user.valid? 
       @user.save
       session[:user_id] = @user.id
-      redirect_to 'home'
+      flash[:notice] = "Thanks for creating an account. Let's begin by adding your studio!"
+      redirect_to new_studio_path
     else
       flash[:alert] = 'User needs a name, password, and unique email.'
       render :new

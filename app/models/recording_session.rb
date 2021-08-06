@@ -5,7 +5,7 @@ class RecordingSession < ApplicationRecord
   accepts_nested_attributes_for :client
 
   def client_attributes=(attributes)
-    if !attributes[:name].blank?
+    if !attributes[:id].blank?
       client = Client.find_by(email: attributes[:email])
       client.update(attributes)
     else

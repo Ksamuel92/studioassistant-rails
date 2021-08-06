@@ -15,7 +15,7 @@ class StudiosController < ApplicationController
     @studio.user_id = session[:user_id]
     if @studio.valid?
       @studio.save
-      redirect_to studio_confirm_path(studio)
+      redirect_to studio_confirm_path(@studio)
     else
       flash[:alert] = 'Make sure to fill out all fields.'
       render :new
@@ -38,7 +38,7 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:studio).permit(:name, :email, :description, :address, :user_id, :daw, :rental_cost)
+    params.require(:studio).permit(:name, :email, :description, :address_line_1, :address_line_2, :city, :state, :zip_code, :user_id, :daw, :rental_cost)
   end
 
   def set_studio
