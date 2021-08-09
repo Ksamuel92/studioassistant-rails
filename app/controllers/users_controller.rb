@@ -22,7 +22,6 @@ before_action :require_login, only: [:show]
   end
 
   def home
-
   end
 
   private
