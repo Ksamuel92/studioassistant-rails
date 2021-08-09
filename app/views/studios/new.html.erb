@@ -1,4 +1,6 @@
-<h3>Create New Studio√ccç</h3>
+<h3>Create New Studio</h3>
+
+<%= render partial: "layouts/error", locals: { object: @studio } %>
 
 <%= form_with model: @studio do |f| %>
 <%= f.label :studio_name %>

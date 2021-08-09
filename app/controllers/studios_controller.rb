@@ -17,7 +17,7 @@ class StudiosController < ApplicationController
       @studio.save
       redirect_to studio_confirm_path(@studio)
     else
-      flash[:alert] = 'Make sure to fill out all fields.'
+
       render :new
     end
   end

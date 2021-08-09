@@ -1,5 +1,8 @@
 <h3>Edit Studio</h3>
 
+<%= render partial: "layouts/error", locals: { object: @studio } %>
+
+
 <%= form_with model: @studio do |f| %>
 <%= f.label :studio_name %>
 <%= f.text_field :name %>

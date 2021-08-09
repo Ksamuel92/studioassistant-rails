@@ -1,3 +1,5 @@
+<%= render partial: "layouts/error", locals: { object: @recordingsession } %>
+
 <%= form_for([@studio, @recordingsession]) do |f| %>
 <%= f.hidden_field :studio_id, value: @studio.id %>
 <%= f.label :start_date %>
