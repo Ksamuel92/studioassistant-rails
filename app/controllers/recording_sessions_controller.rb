@@ -32,11 +32,10 @@ end
   end
   
   def update
-    # byebug
     @recordingsession.update(recordingsession_params)
     if @recordingsession.valid?
         flash[:notice] = "Session Sucessfully Updated"
-        render :show
+        render studio_recording_session_path(@recordingsession.studio, @recordingsession)
     else
       flash[:notice] = "Invalid Update"
       render :edit
