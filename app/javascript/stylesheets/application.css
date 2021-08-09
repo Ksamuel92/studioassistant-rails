@@ -1,8 +1,4 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 /* add custom styles here */
-@layer components {
-  .field_with_errors { @apply border-2 border-red-700}
-}
-
 @import "tailwindcss/utilities";
