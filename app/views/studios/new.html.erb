@@ -1,33 +1,49 @@
-<h3>Create New Studio</h3>
 
 <%= render partial: "layouts/error", locals: { object: @studio } %>
 
+
+<div class="flex h-screen">
+  <div class="m-auto">
+
+<h2 class = "text-center text-xl uppercase">Create New Studio</h2>
+</br>
+
+
+
+
+
+<form class="w-full max-w-lg">
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full x-3 mb-6 md:mb-0">
 <%= form_with model: @studio do |f| %>
-<%= f.label :studio_name %>
-<%= f.text_field :name %>
-<%= f.label :email %>
-<%= f.text_field :email%>
-<%= f.label :address_line_1, "Address Line 1" %>
-<%= f.text_field :address_line_1%>
-<%= f.label :address_line_2, "Address Line 2" %>
-<%= f.text_field :address_line_2%>
-<%= f.label :city %>
-<%= f.text_field :city%>
-<%= f.label :state %>
-<%= f.select :state, options_for_select(us_states), include_blank: true %>
-<%= f.label :zip_code, "Zip Code"%>
-<%= f.text_field :zip_code%>
-<%= f.label :daw, "DAW" %>
-<%= f.text_field :daw%>
-<%= f.label :rental_cost, "Rental Cost (If Any)" %>
-<%= f.number_field :rental_cost%>
-<%= f.label :description, "Additional Notes" %>
-<%= f.text_area :description %>
-<%= f.submit %>
+<%= f.label :name, "Studio Name", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_field :name, class:"@error('email') border-red-500 @enderror block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+<%= f.label :email, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %> 
+<%= f.text_field :email, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  %>
+<%= f.label :address_line_1, "Address Line 1", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_field :address_line_1, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
+<%= f.label :address_line_2, "Address Line 2", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_field :address_line_2, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
+<%= f.label :city, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_field :city, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
+<%= f.label :state, class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.select :state, options_for_select(us_states), include_blank: true, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+<%= f.label :zip_code, "Zip Code", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_field :zip_code, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
+<%= f.label :daw, "DAW", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_field :daw, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
+<%= f.label :rental_cost, "Rental Cost (If Any)", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.number_field :rental_cost, min: "0", class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"%>
+<%= f.label :description, "Additional Notes", class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+<%= f.text_area :description, class:"block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+<%= f.submit class: "text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" %>
 <% end %>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
 
-
-<%= @test_message %>
 
 
 
