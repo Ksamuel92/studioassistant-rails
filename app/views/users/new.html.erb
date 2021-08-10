@@ -6,5 +6,8 @@
 <%= f.text_field :name%>
 <%= f.email_field :email%>
 <%= f.password_field :password%>
-<%= f.submit class: "btn btn-primary" %>
+</br>
+<%= f.submit class: "btn btn-primary center-text" %>
 <% end %>
+</br>
+<%= button_to "Sign Up with Google", '/auth/google_oauth2', class: "btn btn-success" %> 
