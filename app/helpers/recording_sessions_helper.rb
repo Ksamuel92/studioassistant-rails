@@ -10,4 +10,9 @@ module RecordingSessionsHelper
           content_tag(:h2, "Your Sessions")
         end
     end
+
+    def days_available_helper(session)
+        pluralize(session.days_available_by_budget, "day")
+    end
 end
+

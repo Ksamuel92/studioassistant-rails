@@ -13,8 +13,11 @@ class RecordingSession < ApplicationRecord
   end
 
   def days_available_by_budget
-    num = client.budget/(hours_per_day * per_hour)
-    ActionController::Base.helpers.pluralize(num, 'day')
+    client.budget/(hours_per_day * per_hour)
+  end
+
+  def end_date
+    start_date + days_available_by_budget
   end
 
 end
