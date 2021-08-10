@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
 
-  def landing_page
+  def home
     
   end
 

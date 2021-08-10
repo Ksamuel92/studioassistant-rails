@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'session/omniauth'
-  root to: 'users#new'
+  root to: 'static#home'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
