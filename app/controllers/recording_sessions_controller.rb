@@ -1,10 +1,11 @@
 class RecordingSessionsController < ApplicationController
   before_action :require_login
-  before_action :set_studio, only: [:new, :create, :show, :edit]
+  before_action :set_studio, only: [:new, :create, :show, :edit, :update]
   before_action :set_recordingsession, except: [:new, :create, :index]
   
   def index
   @studios = current_user.studios
+  @recordingsessions = current_user.recording_sessions
   end
 
  def new
@@ -34,7 +35,7 @@ class RecordingSessionsController < ApplicationController
     @recordingsession.update(recordingsession_params)
     if @recordingsession.valid?
         flash[:notice] = "Session Sucessfully Updated"
-        render studio_recording_session_path(@recordingsession.studio, @recordingsession)
+        redirect_to studio_recording_session_path(@recordingsession.studio, @recordingsession)
     else
       flash[:notice] = "Invalid Update"
       render :edit
@@ -42,6 +43,9 @@ class RecordingSessionsController < ApplicationController
   end
 
   def destroy
+    byebug
+    @recordingsession.destroy
+    redirect_to recording_sessions_path
   end
 
   def this_week
