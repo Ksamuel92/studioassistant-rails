@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get '/confirm', to: 'static#landing_page'
     resources :recording_sessions, only: [:new, :create, :show, :edit, :update], path: :recordingsessions
   end
-  resources :recording_sessions, only: [:index], path: :recordingsessions
+  resources :recording_sessions, only: [:index, :destroy], path: :recordingsessions
 end
