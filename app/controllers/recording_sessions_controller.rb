@@ -2,6 +2,7 @@ class RecordingSessionsController < ApplicationController
   before_action :require_login
   before_action :set_studio, only: [:new, :create, :show, :edit]
   before_action :set_recordingsession, except: [:new, :create, :index]
+  
   def index
   @studios = current_user.studios
   end
@@ -9,10 +10,9 @@ class RecordingSessionsController < ApplicationController
  def new
     @recordingsession = RecordingSession.new
     @recordingsession.build_client
-end
+ end
 
   def create
-  
     @recordingsession = RecordingSession.new(recordingsession_params)
     # @studio = Studio.find_or_create_by(id: params[:studio_id])
     if @recordingsession.valid?
@@ -25,7 +25,6 @@ end
   end
 
   def show
-
   end
 
   def edit
@@ -43,7 +42,10 @@ end
   end
 
   def destroy
+  end
 
+  def this_week
+  
   end
 
   private
