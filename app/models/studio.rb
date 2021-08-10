@@ -20,6 +20,5 @@ class Studio < ApplicationRecord
   belongs_to :user
   validates_presence_of :name, :address_line_1, :city, :state, :zip_code, :daw, :rental_cost
   validates :email, presence: true, uniqueness: true
-
-  
-end
+  # scope :search_by_daw, ->(daw) { where(daw: daw) } add feature at end
+  end
