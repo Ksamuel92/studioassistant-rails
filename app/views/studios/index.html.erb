@@ -1,0 +1,9 @@
+<h2> Studios </h2>
+<ul>
+<% @studios.each do |studio| %>
+    <li> <h5><%= link_to studio.name, studio_path(studio) %> </h5> </li>
+    <li> <%= link_to "Create a new session at #{studio.name}", new_studio_recording_session_path(studio) %>
+    <%= button_to 'Delete Studio', studio_path(studio), method: :delete, :onclick => "return confirm('Deleting this studio will also delete all of its sessions. Are you sure?')" %>
+<% end %>
+<%= link_to "Create New Studio", new_studio_path %>
+</ul>

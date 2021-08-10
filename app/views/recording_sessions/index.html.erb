@@ -1,11 +1,7 @@
+<%= index_header_sessions %>
 <ul>
-<% @studios.each do |studio| %>
-    <li> <%= link_to studio.name, studio_path(studio) %> </li>
-    <li> <%= link_to "Create a new session at #{studio.name}", new_studio_recording_session_path(studio) %>
-<% studio.recording_sessions.each do |rsession| %>
-        <li> <%= link_to "Session with #{rsession.client.name}", studio_recording_session_path(rsession.studio, rsession.id) %> </li>
-    <% end %>
-<% end %>
-</ul>
-
-<%= link_to "Create New Studio", new_studio_path %>
+<% @recordingsessions.each do |session| %>
+    <li> <%= link_to "Session at #{session.studio.name} with #{session.client.name} on #{session.start_date}", studio_recording_session_path(session.studio, session) %>
+    <%= button_to 'Delete Session', recording_session_path(session), method: :delete, :onclick => "return confirm(Are you sure you want to delete this session?)" %>
+<% end%>
+</ul>    
