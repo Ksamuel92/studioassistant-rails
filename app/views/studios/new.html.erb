@@ -1,34 +1,25 @@
-<h3>Create New Studio</h3>
+<h1 class= "text-center">Create New Studio</h1>
 
 <%= render partial: "layouts/error", locals: { object: @studio } %>
 
-<%= form_with model: @studio do |f| %>
-<%= f.label :studio_name %>
-<%= f.text_field :name %>
-<%= f.label :email %>
-<%= f.text_field :email%>
-<%= f.label :address_line_1, "Address Line 1" %>
-<%= f.text_field :address_line_1%>
-<%= f.label :address_line_2, "Address Line 2" %>
+<%= bootstrap_form_for(@studio) do |f| %>
+<%= f.text_field :name, label: "Studio Name", required: true %>
+<%= f.text_field :email, required: true %>
+</br>
+<%= f.text_field :address_line_1, required: true %>
 <%= f.text_field :address_line_2%>
-<%= f.label :city %>
-<%= f.text_field :city%>
-<%= f.label :state %>
-<%= f.select :state, options_for_select(us_states), include_blank: true %>
-<%= f.label :zip_code, "Zip Code"%>
-<%= f.text_field :zip_code%>
-<%= f.label :daw, "DAW" %>
-<%= f.text_field :daw%>
-<%= f.label :rental_cost, "Rental Cost (If Any)" %>
-<%= f.number_field :rental_cost%>
-<%= f.label :description, "Additional Notes" %>
-<%= f.text_area :description %>
-<%= f.submit %>
+<%= f.text_field :city, required: true %>
+<%= f.select :state, options_for_select(us_states), include_blank: true, required: true  %>
+<%= f.text_field :zip_code, required: true %>
+</br>
+<%= f.text_field :daw, label: "DAW", required: true  %>
+</br>
+<%= f.number_field :rental_cost, prepend: "$", append:".00", required: true %>
+</br>
+<%= f.text_area :description%>
+</br>
+<%= f.primary %>
 <% end %>
-
-
-<%= @test_message %>
-
 
 
 
