@@ -15,7 +15,7 @@ class StudiosController < ApplicationController
     @studio.user_id = session[:user_id]
     if @studio.valid?
       @studio.save
-      redirect_to studio_confirm_path(@studio)
+      redirect_to studios_path
     else
 
       render :new
@@ -42,6 +42,8 @@ class StudiosController < ApplicationController
   end
 
   def destroy
+    @studio.destroy
+    redirect_to recording_sessions_path
   end
 
   private
