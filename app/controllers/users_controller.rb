@@ -18,7 +18,6 @@ before_action :set_new_user, only: [:new, :create]
       flash[:notice] = "Thanks for creating an account. Let's begin by adding your studio!"
       redirect_to new_studio_path
     else
-      flash[:alert] = 'User needs a name, password, and unique email.'
       render :new
     end
   end
