@@ -66,6 +66,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.7)
       msgpack (~> 1.0)
+    bootstrap_form (4.5.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.35.3)
@@ -84,7 +87,7 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
-    faraday (1.6.0)
+    faraday (1.7.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -123,15 +126,13 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
-    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    nio4r (2.5.7)
-    nokogiri (1.12.0)
-      mini_portile2 (~> 2.6.1)
+    nio4r (2.5.8)
+    nokogiri (1.12.3-x86_64-darwin)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -252,11 +253,12 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-19
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
+  bootstrap_form (~> 4.0)
   byebug
   capybara (>= 3.26)
   dotenv-rails
@@ -282,4 +284,4 @@ RUBY VERSION
    ruby 2.6.1p33
 
 BUNDLED WITH
-   2.0.1
+   2.2.14

@@ -59,7 +59,6 @@ class RecordingSessionsController < ApplicationController
   def recordingsession_params
     params.require(:recording_session).permit(:id, :studio_id,
       :start_date,
-      :end_date,
       :hours_per_day,
       :per_hour,
       client_attributes: [:id, :name, :email, :genre, :budget, :band, :drums]
