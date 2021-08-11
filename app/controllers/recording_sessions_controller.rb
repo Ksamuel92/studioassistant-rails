@@ -1,7 +1,7 @@
 class RecordingSessionsController < ApplicationController
   before_action :require_login
   before_action :set_studio, only: [:new, :create, :show, :edit, :update]
-  before_action :set_recordingsession, except: [:new, :create, :index, :this_week]
+  before_action :set_recordingsession, except: [:new, :create, :index, :thisweek]
   
   def index
   @studios = current_user.studios
@@ -48,7 +48,7 @@ class RecordingSessionsController < ApplicationController
     redirect_to recording_sessions_path
   end
 
-  def this_week
+  def thisweek
     # byebug
     @recordingsessions = current_user.recording_sessions.this_week
     render "recording_sessions/index"

@@ -15,7 +15,7 @@ module ApplicationHelper
         links = [
             link_to("My Studios", studios_path, class: "nav-item nav-link"), 
             link_to("My Sessions", recording_sessions_path, class: "nav-item nav-link" ),
-            link_to("This Week", thisweek_path, class: "nav-item nav-link" ),
+            link_to("This Week", thisweek_recording_sessions_path, class: "nav-item nav-link" ),
             link_to("Log Out", logout_path, method: 'delete', class: "nav-item nav-link")
         ]
         tags = html_escape('')

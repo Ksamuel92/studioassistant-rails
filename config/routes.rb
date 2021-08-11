@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
-  get '/thisweek', to: 'recording_sessions#this_week'
+  
   resources :studios do
-    get '/confirm', to: 'static#landing_page'
     resources :recording_sessions, only: [:new, :create, :show, :edit, :update], path: :recordingsessions
   end
-  resources :recording_sessions, only: [:index, :destroy], path: :recordingsessions
+
+  resources :recording_sessions, only: [:index, :destroy], path: :recordingsessions do
+    get 'thisweek', on: :collection
+  end
 end
