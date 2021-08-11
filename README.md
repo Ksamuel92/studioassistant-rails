@@ -35,12 +35,12 @@ Once you are on the home page, simply signup, create your first studio, and star
 ## Contributing to StudioAssistant
 To contribute to StudioAssistant, follow these steps:
 
--Fork this repository.
--Create a branch: git checkout -b <branch_name>.
--Make your changes and commit them: git commit -m '<commit_message>'
--Push to the original branch: git push origin studioassistant-rails
--Create the pull request.
--Alternatively see the GitHub documentation on creating a pull request.
+* Fork this repository.
+* Create a branch: git checkout -b <branch_name>.
+* Make your changes and commit them: git commit -m '<commit_message>'
+* Push to the original branch: git push origin studioassistant-rails
+* Create the pull request.
+* Alternatively see the GitHub documentation on creating a pull request.
 
 ## Contact
 
