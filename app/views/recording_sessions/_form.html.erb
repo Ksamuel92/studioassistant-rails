@@ -1,13 +1,11 @@
 <%= render partial: "layouts/error", locals: { object: @recordingsession } %>
 
-
 <%= bootstrap_form_for([@studio, @recordingsession]) do |f| %>
 <%= f.alert_message "Please fix the errors below." %>
 <%= f.hidden_field :studio_id, value: @studio.id %>
 <%= f.date_field :start_date, label: "Start Date", required: true %></br>
 <%= f.number_field :hours_per_day, label: "Hours Per Day", required: true %></br>
-<%= f.number_field :per_hour, label: "Per Hour", prepend: "$", append: ".00", required: true%>
-  </br>
+<%= f.number_field :per_hour, label: "Per Hour", prepend: "$", append: ".00", required: true%> </br>
 <%= render partial: "clients/client_fields", locals: {f: f} %>
 <%= f.primary submit_form_helper %>
 <% end %>
