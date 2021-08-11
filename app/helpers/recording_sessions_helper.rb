@@ -5,9 +5,9 @@ module RecordingSessionsHelper
 
     def index_header_sessions
       if params[:action] == "this_week"
-          content_tag(:h2, "This Week's Sessions")
+          "This Week's Sessions"
         else
-          content_tag(:h2, "Your Sessions")
+          "Your Sessions"
         end
     end
 
