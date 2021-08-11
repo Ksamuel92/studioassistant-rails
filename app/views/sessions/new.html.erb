@@ -1,8 +1,6 @@
-<%= form_for(:user, url: login_path) do |f| %>
-<%= f.label :email %>
-<%= f.text_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.submit "Log In" %>
-<% end %>
-<%= button_to "Log in with Google", '/auth/google_oauth2' %> 
+<div class= "page-header">
+<h1 class= "text-center">  Log In </h1>
+</div>
+<%= render partial: "form"%>
+</br>
+<%= button_to "Log In with Google", '/auth/google_oauth2', class: "btn btn-success" %> 
