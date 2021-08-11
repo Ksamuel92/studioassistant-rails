@@ -1,13 +1,11 @@
+<div class= "page-header">
+<h1 class= "text-center"> Sign Up </h1>
+</div>
 
 
 
+<%= render partial: "form"%>
 
-<%= bootstrap_form_for(@user, url: signup_path) do |f| %>
-<%= f.text_field :name%>
-<%= f.email_field :email%>
-<%= f.password_field :password%>
-</br>
-<%= f.submit class: "btn btn-primary center-text" %>
-<% end %>
+
 </br>
 <%= button_to "Sign Up with Google", '/auth/google_oauth2', class: "btn btn-success" %> 
