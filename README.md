@@ -44,7 +44,7 @@ To contribute to StudioAssistant, follow these steps:
 
 ## Contact
 
-If you would like to contact me, please email ksamuel92@mgail.com
+If you would like to contact me, please email ksamuel92@gmail.com
 
 ## License
 
