@@ -1,0 +1,10 @@
+
+   <h2 class = "text-center">Client Information</h2>
+    <%= f.fields_for :client do |client_field| %>
+  <%= client_field.text_field :name, required: true%></br>
+  <%= client_field.email_field :email, required: true%></br>
+  <%= client_field.text_field :genre, required: true%></br>
+  <%= client_field.number_field :budget, prepend: "$", append: ".00", required: true%></br>
+  <%= client_field.check_box :band, label: "Band?" %></br>
+  <%= client_field.check_box :drums, label: "Client Bringing Drums?" %></br>
+  <% end %> 
