@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:show]
+  before_action :set_user, :require_login, only: [:show, :edit, :update, :destroy]
   before_action :set_new_user, only: [:new, :create]
 
   def new
@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
+
+  end
+
+  def edit
+
   end
 
   def create
@@ -22,7 +27,20 @@ class UsersController < ApplicationController
     end
   end
 
-  def home
+  def update
+    @user.update(user_params)
+    if @user.valid?
+      flash[:notice] = 'Session Sucessfully Updated'
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = 'Invalid Update'
+      render :edit
+    end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to '/'
   end
 
   private
@@ -33,5 +51,9 @@ class UsersController < ApplicationController
 
   def set_new_user
     @user = User.new
+  end
+
+  def set_user
+    @user = User.find_by(id: session[:user_id])
   end
 end

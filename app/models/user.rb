@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :studios
+  has_many :studios, dependent: :destroy
   has_many :recording_sessions, through: :studios
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true

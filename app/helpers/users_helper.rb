@@ -6,5 +6,13 @@ module UsersHelper
         button_to('Sign Up', signup_path, method: :get, class: 'text-center btn btn-primary btn-lg')
       )
     end
+  end
+
+  def user_form_password_helper(f)
+    if params[:action] == 'new'
+      f.password_field :password
+    else
+      nil
     end
+  end
 end

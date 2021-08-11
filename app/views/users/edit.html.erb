@@ -1,0 +1,11 @@
+<div class= "page-header">
+<h1 class= "text-center"> Edit Profile </h1>
+</div>
+
+<%= bootstrap_form_for(@user) do |f| %>
+<%= f.text_field :name%>
+<%= f.email_field :email%>
+<%= user_form_password_helper(f) %>
+</br>
+<%= f.submit class: "btn btn-primary center-text" %>
+<% end %>
