@@ -2,22 +2,25 @@
 <h1 class= "text-center"> My Studios </h1>
 <p class= "text-center text-muted font-weight-light"> view, edit, and create recording sessions </p> 
 </div>
-<hr>
-<div class = "text-center">
- <%= button_to 'Create New Studio', new_studio_path, method: :get, class: 'text-center btn btn-primary'%>
- </div>
- <br>
  <div class="row text-center">
 <% @studios.each do |studio| %>
 
-  <div class="card mx-auto" style="width: 18rem;">
+  <div class="card mx-auto">
     <div class="card-body">
     <h5 class="card-title"><%= link_to studio.name, studio_path(studio) %> </h5>
     <p class="card-text"><%= studio_address_helper(studio) %> </p>
     <div class = "btn-group">
-      <%= button_to 'Edit Studio', edit_studio_path(studio), method: :get, class: 'btn btn-primary'%> <%= button_to 'Delete Studio', studio_path(studio), method: :delete, :onclick => "return confirm('Deleting this studio will also delete all of its sessions. Are you sure?')", class: "btn btn-danger"%>
+      <%= button_to 'Edit Studio', edit_studio_path(studio), method: :get, class: 'btn btn-primary'%> 
+      <%= button_to 'Delete Studio', studio_path(studio), method: :delete, :onclick => "return confirm('Deleting this studio will also delete all of its sessions. Are you sure?')", class: "btn btn-danger"%>
     </div>
+    <br>
+    <br>
+    <%= button_to 'Create New Session', new_studio_recording_session_path(studio), method: :get, class: "btn btn-secondary" %>
     </div>
   </div>
 <% end %>
 </div>
+<br>
+<div class = "text-center">
+ <%= button_to 'Create New Studio', new_studio_path, method: :get, class: 'text-center btn btn-primary'%>
+ </div>

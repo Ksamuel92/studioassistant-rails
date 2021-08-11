@@ -43,7 +43,7 @@ class StudiosController < ApplicationController
 
   def destroy
     @studio.destroy
-    redirect_to recording_sessions_path
+    redirect_to studios_path
   end
 
   private
