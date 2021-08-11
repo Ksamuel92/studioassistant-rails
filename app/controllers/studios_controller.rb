@@ -16,8 +16,7 @@ class StudiosController < ApplicationController
     if @studio.valid?
       @studio.save
       redirect_to studios_path
-    else
-
+    else      
       render :new
     end
   end

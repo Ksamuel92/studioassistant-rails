@@ -1,17 +1,17 @@
 module StudiosHelper
   def li_rental_cost_helper(studio)
     if studio.rental_cost.zero?
-      content_tag(:li, 'Rental Cost: Free')
+      content_tag(:li, 'Rental Cost: Free', class: "list-group-item")
     else
-      content_tag(:li, "Rental Cost: #{number_to_currency(studio.rental_cost)}")
+      content_tag(:li, "Rental Cost: #{number_to_currency(studio.rental_cost)}", class: "list-group-item")
     end
   end
 
   def li_description_helper(studio)
     if !studio.description.blank?
-      content_tag(:li, studio.description.to_s)
+      content_tag(:li, studio.description.to_s, class: "list-group-item")
     else
-      content_tag(:li, "No Description Provided")
+      content_tag(:li, "No Description Provided", class: "list-group-item")
     end
   end
 
