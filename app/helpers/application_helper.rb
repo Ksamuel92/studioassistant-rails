@@ -25,6 +25,7 @@ module ApplicationHelper
     link_to('My Studios', studios_path, class: 'nav-item nav-link'), 
     link_to('My Sessions', recording_sessions_path, class: 'nav-item nav-link' ),
     link_to('This Week', thisweek_recording_sessions_path, class: 'nav-item nav-link'),
+    link_to('My Profile', user_path(session[:user_id]), class: 'nav-item nav-link'),
     link_to('Log Out', logout_path, method: 'delete', class: 'nav-item nav-link')
   ]
   end
