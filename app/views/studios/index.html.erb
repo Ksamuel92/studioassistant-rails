@@ -6,13 +6,18 @@
 <div class = "text-center">
  <%= button_to 'Create New Studio', new_studio_path, method: :get, class: 'text-center btn btn-primary'%>
  </div>
+ <br>
+ <div class="row text-center">
 <% @studios.each do |studio| %>
-  <div class="card" style="width: 18rem;">
+
+  <div class="card mx-auto" style="width: 18rem;">
     <div class="card-body">
     <h5 class="card-title"><%= link_to studio.name, studio_path(studio) %> </h5>
     <p class="card-text"><%= studio_address_helper(studio) %> </p>
-    <%= button_to 'Edit Studio', edit_studio_path(studio), method: :get, class: 'btn btn-primary'%>
+    <div class = "btn-group">
+      <%= button_to 'Edit Studio', edit_studio_path(studio), method: :get, class: 'btn btn-primary'%> <%= button_to 'Delete Studio', studio_path(studio), method: :delete, :onclick => "return confirm('Deleting this studio will also delete all of its sessions. Are you sure?')", class: "btn btn-danger"%>
+    </div>
     </div>
   </div>
 <% end %>
-
+</div>
