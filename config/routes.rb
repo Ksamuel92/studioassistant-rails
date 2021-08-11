@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   
+  resources :users, only: [:show, :edit, :update, :destroy], path: :profile
+
   resources :studios do
     resources :recording_sessions, only: [:new, :create, :show, :edit, :update], path: :recordingsessions
   end
