@@ -1,25 +1,38 @@
-<h2>Your Session</h2>
+<div class= "page-header">
+<h1 class= "text-center"> Your Session </h1>
+<p class= "text-center text-muted font-weight-light"> view and edit your sessions </p> 
+</div>
 
-<h4> Studio Information </h4>
-<ul> 
+ <div class="card mx-auto">
+    <div class="card-body">
+    <h5 class="card-title">Studio Information</h5>
+    <ul class="card-text">
     <li> Email:  <%= @studio.email %> </li> 
     <li> Address: <%= studio_address_helper(@studio) %> </li> 
     <li>DAW:  <%= @studio.daw %> </li> 
     <%= li_rental_cost_helper(@studio) %> 
     <%= li_description_helper(@studio) %> 
-</ul>
+  </ul>
+    </div>
+  </div>
 
-<h4> Session Information </h4>
-
-<p> Your client, <%= @recordingsession.client.name %>, is a <%= @recordingsession.client.genre%> artist. </p>
-<p> You're charging the client <%=number_to_currency(@recordingsession.per_hour)%> per hour for <%= hours_per_day_helper(@recordingsession) %>. 
+ <div class="card mx-auto">
+    <div class="card-body">
+    <h5 class="card-title">Session Information</h5>
+    <p class="card-text">
+Your client, <%= @recordingsession.client.name %>, is a <%= @recordingsession.client.genre%> artist. You're charging the client <%=number_to_currency(@recordingsession.per_hour)%> per hour for <%= hours_per_day_helper(@recordingsession) %> a day. 
 Given their budget is <%= number_to_currency(@recordingsession.client.budget) %>, they have <%= days_available_helper(@recordingsession) %> for their session.
-If that doesn't seem right, you can email <%= @recordingsession.client.name %> at <%= @recordingsession.client.email %>
+If that doesn't seem right, you can email <%= @recordingsession.client.name %> at <%= @recordingsession.client.email %>.
 
 The session starts on <%= @recordingsession.start_date %> and is currently scheduled to end at <%= @recordingsession.end_date %>.
 <%= band_helper(@recordingsession.client) %>
 <%= drums_helper(@recordingsession.client) %>
+  </p>
+    </div>
+  </div>
 
-<%= link_to "Edit Session", edit_studio_recording_session_path(@recordingsession.studio, @recordingsession)%>
-
-
+<br>
+<div class="btn-group mx-auto">
+<%= button_to 'Edit Session', edit_studio_recording_session_path(@studio, @recordingsession), method: :get, class: 'btn btn-primary mx-auto'%> 
+<%= button_to 'Delete Session', recording_session_path(@recordingsession), method: :delete, :onclick => "return confirm('Are you sure you want to delete this session?')", class: "btn btn-danger"%>
+</div>

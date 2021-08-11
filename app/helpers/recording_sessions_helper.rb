@@ -14,5 +14,13 @@ module RecordingSessionsHelper
     def days_available_helper(session)
         pluralize(session.days_available_by_budget, "day")
     end
+
+    def submit_form_helper
+      if params[:action] == "edit"
+        "Edit Session"
+      else
+        "Create Session"
+      end
+    end
 end
 

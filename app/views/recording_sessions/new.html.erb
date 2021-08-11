@@ -1,23 +1,4 @@
 
-<h1 class= "text-center" > Create New Session </h1>
+<h1 class= "text-center" > Create New Session At <%= @studio.name %> </h1>
 
-<%= render partial: "layouts/error", locals: { object: @recordingsession } %>
-
-<%= bootstrap_form_for([@studio, @recordingsession]) do |f| %>
-<%= f.alert_message "Please fix the errors below." %>
-<%= f.hidden_field :studio_id, value: @studio.id %>
-<%= f.date_field :start_date, label: "Start Date", required: true %></br>
-<%= f.number_field :hours_per_day, label: "Hours Per Day", required: true %></br>
-<%= f.number_field :per_hour, label: "Per Hour", prepend: "$", append: ".00", required: true%>
-  </br>
-    <h2 class = "text-center">Client Information</h2>
-<%= f.fields_for :client do |client_field| %>
-  <%= client_field.text_field :name, required: true%></br>
-  <%= client_field.email_field :email, required: true%></br>
-  <%= client_field.text_field :genre, required: true%></br>
-  <%= client_field.number_field :budget, prepend: "$", append: ".00", required: true%></br>
-  <%= client_field.check_box :band, label: "Band?" %></br>
-  <%= client_field.check_box :drums, label: "Client Bringing Drums?" %></br>
-<% end %> 
-<%= f.primary "Create Session" %>
-<% end %>
+<%= render partial: "form" %>
