@@ -1,25 +1,6 @@
 <h1 class= "text-center">Create New Studio</h1>
 
-<%= render partial: "layouts/error", locals: { object: @studio } %>
+<%# <%= render partial: "layouts/error", locals: { object: @studio } %>
+<%# Above is commented out because of the error inline messages generated below %>
 
-<%= bootstrap_form_for(@studio) do |f| %>
-<%= f.text_field :name, label: "Studio Name", required: true %>
-<%= f.text_field :email, required: true %>
-</br>
-<%= f.text_field :address_line_1, required: true %>
-<%= f.text_field :address_line_2%>
-<%= f.text_field :city, required: true %>
-<%= f.select :state, options_for_select(us_states), include_blank: true, required: true  %>
-<%= f.text_field :zip_code, required: true %>
-</br>
-<%= f.text_field :daw, label: "DAW", required: true  %>
-</br>
-<%= f.number_field :rental_cost, prepend: "$", append:".00", required: true %>
-</br>
-<%= f.text_area :description%>
-</br>
-<%= f.primary %>
-<% end %>
-
-
-
+<%= render partial: 'form' %>

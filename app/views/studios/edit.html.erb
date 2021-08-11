@@ -1,28 +1,6 @@
-<h3>Edit Studio</h3>
+<h1 class= "text-center">Edit <%= @studio.name %> </h1>
 
-<%= render partial: "layouts/error", locals: { object: @studio } %>
+<%# <%= render partial: "layouts/error", locals: { object: @studio } %>
+<%# Above is commented out because of the error inline messages generated below %>
 
-
-<%= form_with model: @studio do |f| %>
-<%= f.label :studio_name %>
-<%= f.text_field :name %>
-<%= f.label :email %>
-<%= f.text_field :email%>
-<%= f.label :address_line_1, "Address Line 1" %>
-<%= f.text_field :address_line_1%>
-<%= f.label :address_line_2, "Address Line 2" %>
-<%= f.text_field :address_line_2%>
-<%= f.label :city %>
-<%= f.text_field :city%>
-<%= f.label :state %>
-<%= f.select :state, options_for_select(us_states), include_blank: true %>
-<%= f.label :zip_code, "Zip Code"%>
-<%= f.text_field :zip_code%>
-<%= f.label :daw, "DAW" %>
-<%= f.text_field :daw%>
-<%= f.label :rental_cost, "Rental Cost (If Any)" %>
-<%= f.number_field :rental_cost%>
-<%= f.label :description, "Additional Notes" %>
-<%= f.text_area :description %>
-<%= f.submit %>
-<% end %>
+<%= render partial: 'form' %>
