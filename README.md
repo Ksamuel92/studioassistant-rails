@@ -7,8 +7,8 @@ StudioAssistant is a web application designed for the working music producer to 
 
 Before you continue, make sure you meet the following requirements:
 
-Ruby 2.6.3
-Rails 6.1.4
+* Ruby 2.6.3
+* Rails 6.1.4
 
 ## Install
 
