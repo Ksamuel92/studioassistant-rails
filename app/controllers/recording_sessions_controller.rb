@@ -31,6 +31,7 @@ class RecordingSessionsController < ApplicationController
   end
 
   def update
+    # byebug
     @recordingsession.update(recordingsession_params)
     if @recordingsession.valid?
       flash[:notice] = 'Session Sucessfully Updated'
@@ -60,7 +61,7 @@ class RecordingSessionsController < ApplicationController
       :start_date,
       :hours_per_day,
       :per_hour,
-      client_attributes: %i[id name email genre budget band drums]
+      client_attributes: [:id, :name, :email, :genre, :budget, :band, :drums]
     )
   end
 

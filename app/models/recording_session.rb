@@ -8,9 +8,14 @@ class RecordingSession < ApplicationRecord
   scope :this_week, -> { where(start_date: Time.now..7.days.from_now) }
 
   def client_attributes=(attributes)
-    self.client = Client.find_or_create_by(attributes)
+    if !attributes[:id].blank?
+      # byebug
+      client = Client.find_by(id: attributes[:id])
+      client.update(attributes)
+    else
+      self.client = Client.find_or_create_by(attributes)
+    end
   end
-
   def days_available_by_budget
     client.budget / (hours_per_day * per_hour)
   end
