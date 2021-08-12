@@ -16,7 +16,7 @@ class StudiosController < ApplicationController
     if @studio.valid?
       @studio.save
       redirect_to studios_path
-    else      
+    else
       render :new
     end
   end
@@ -46,6 +46,7 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
+    
     params.require(:studio).permit(
       :name,
       :email,
