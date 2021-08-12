@@ -7,12 +7,4 @@ module UsersHelper
       )
     end
   end
-
-  def user_form_password_helper(f)
-    if params[:action] == 'new'
-      f.password_field :password
-    else
-      nil
-    end
-  end
 end

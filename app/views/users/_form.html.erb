@@ -1,7 +1,7 @@
 <%= bootstrap_form_for(@user, url: signup_path) do |f| %>
 <%= f.text_field :name%>
 <%= f.email_field :email%>
-<%= user_form_password_helper(f) %>
+<%= f.password_field :password %>
 </br>
 <%= f.submit class: "btn btn-primary center-text" %>
 <% end %>
