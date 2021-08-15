@@ -6,7 +6,7 @@
 <%= f.text_field :address_line_1, required: true %>
 <%= f.text_field :address_line_2%>
 <%= f.text_field :city, required: true %>
-<%= f.select :state, options_for_select(us_states), include_blank: true, required: true  %>
+<%= f.select :state, options_for_select(us_states, @studio.state), include_blank: true, required: true  %>
 <%= f.text_field :zip_code, required: true %>
 </br>
 <%= f.text_field :daw, label: "DAW", required: true  %>
