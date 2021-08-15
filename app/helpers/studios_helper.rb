@@ -11,7 +11,7 @@ module StudiosHelper
     if !studio.description.blank?
       content_tag(:li, studio.description.to_s, class: "list-group-item")
     else
-      content_tag(:li, "No Description Provided", class: "list-group-item")
+      content_tag(:li, "No Description Provided", class: "list-group-item disabled")
     end
   end
 
