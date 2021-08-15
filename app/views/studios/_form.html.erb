@@ -1,17 +1,21 @@
 
 <%= bootstrap_form_for(@studio) do |f| %>
+<%= f.form_group do %>
 <%= f.text_field :name, label: "Studio Name", required: true %>
 <%= f.text_field :email, required: true %>
+<% end %>
 </br>
-<%= f.text_field :address_line_1, required: true %>
-<%= f.text_field :address_line_2%>
+</br>
+<%= f.form_group do %>
+<%= f.text_field :address_line_1, label: "Street Address", required: true %>
 <%= f.text_field :city, required: true %>
 <%= f.select :state, options_for_select(us_states, @studio.state), include_blank: true, required: true  %>
-<%= f.text_field :zip_code, required: true %>
+<%= f.text_field :zip_code, label: "Zip Code", required: true %>
+<% end %>
+</br>
 </br>
 <%= f.text_field :daw, label: "DAW", required: true  %>
-</br>
-<%= f.number_field :rental_cost, prepend: "$", append:".00", required: true %>
+<%= f.number_field :rental_cost, label: "Rental Cost", label_class: "label-primary", prepend: "$", append:".00", required: true %>
 </br>
 <%= f.text_area :description%>
 </br>
