@@ -10,11 +10,11 @@ class Studio < ApplicationRecord
   def capitalize_attributes
     self.attributes.each do |attr,val|
       self.send("#{attr}=",val.strip.titleize) if self.capitalizable_attributes.include?(attr) && !val.nil?
-    end    
+    end
   end
 
 
   def capitalizable_attributes
-    ["name", "address_line_1", "city", "state", "daw"]
+    %w[name address_line_1 city state daw]
   end
 end
