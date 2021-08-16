@@ -16,6 +16,7 @@ class RecordingSession < ApplicationRecord
       self.client = Client.find_or_create_by(attributes)
     end
   end
+  
   def days_available_by_budget
     client.budget / (hours_per_day * per_hour)
   end

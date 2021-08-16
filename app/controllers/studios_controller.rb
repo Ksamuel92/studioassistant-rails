@@ -1,6 +1,7 @@
 class StudiosController < ApplicationController
   before_action :require_login
   before_action :set_studio, except: [:new, :create, :index]
+  before_action :check_user, only: [:show, :edit]
 
   def index
     @studios = current_user.studios
@@ -64,5 +65,12 @@ class StudiosController < ApplicationController
 
   def set_studio
     @studio = Studio.find(params[:id])
+  end
+
+  def check_user
+    if current_user != @studio.user
+      flash[:notice] = "That isn't your studio!"
+      redirect_to studios_path
+    end
   end
 end
