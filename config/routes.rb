@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :studios do
     resources :recording_sessions, only: [:new, :create, :show, :edit, :update], path: :recordingsessions
-  end
+  end #:show :edit and :update
 
   resources :recording_sessions, only: [:index, :destroy], path: :recordingsessions do
     get 'thisweek', on: :collection
