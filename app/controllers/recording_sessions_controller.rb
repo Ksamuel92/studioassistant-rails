@@ -2,7 +2,7 @@ class RecordingSessionsController < ApplicationController
   before_action :require_login
   before_action :set_studio, only: %i[new create show edit update]
   before_action :set_recordingsession, except: %i[new create index thisweek]
-  before_action :check_user, only: [:show, :edit]
+  before_action :check_user, only: %i[show edit]
   
   def index
     @studios = current_user.studios
