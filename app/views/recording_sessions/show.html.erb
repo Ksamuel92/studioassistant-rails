@@ -1,30 +1,24 @@
 <div class= "page-header">
 <h1 class= "text-center"> Your Session </h1>
-<p class= "text-center text-muted font-weight-light"> view and edit your sessions </p> 
+<p class= "text-center text-muted font-weight-light"> with <%= @recordingsession.client.name %> on <%= @recordingsession.start_date%>. </p> 
 </div>
+</br>
+<h5 class="text-center"> Studio Information </h5>
+</br>
+<%= render partial: "studios/studio_info" %>
 
- <div class="card mx-auto">
-    <div class="card-body">
-    <h5 class="card-title">Studio Information</h5>
-    <ul class="card-text">
-    <li> Email:  <%= @studio.email %> </li> 
-    <li> Address: <%= studio_address_helper(@studio) %> </li> 
-    <li>DAW:  <%= @studio.daw %> </li> 
-    <%= li_rental_cost_helper(@studio) %> 
-    <%= li_description_helper(@studio) %> 
-  </ul>
-    </div>
-  </div>
-
- <div class="card mx-auto">
-    <div class="card-body">
-    <h5 class="card-title">Session Information</h5>
-    <p class="card-text">
-Your client, <%= @recordingsession.client.name %>, is a <%= @recordingsession.client.genre%> artist. You're charging the client <%=number_to_currency(@recordingsession.per_hour)%> per hour for <%= hours_per_day_helper(@recordingsession) %> a day. 
-Given their budget is <%= number_to_currency(@recordingsession.client.budget) %>, they have <%= days_available_helper(@recordingsession) %> for their session.
-If that doesn't seem right, you can email <%= @recordingsession.client.name %> at <%= @recordingsession.client.email %>.
-
-The session starts on <%= @recordingsession.start_date %> and is currently scheduled to end at <%= @recordingsession.end_date %>.
+</br>
+<h5 class="text-center">Session Information</h5>
+</br>
+  <ul class= "list-group">
+<li class="list-group-item">Your client, <%= @recordingsession.client.name %>, is a <%= @recordingsession.client.genre%> artist. </li>
+<li class="list-group-item">You're charging the client <%=number_to_currency(@recordingsession.per_hour)%> per hour for <%= hours_per_day_helper(@recordingsession) %> a day. </li>
+<li class="list-group-item">Given their budget is <%= number_to_currency(@recordingsession.client.budget) %>, they have <%= days_available_helper(@recordingsession) %> for their session. </li>
+<li class="list-group-item">If that doesn't seem right, you can email <%= @recordingsession.client.name %> at <%= @recordingsession.client.email %>.</li>
+<li class="list-group-item">The session starts on <%= @recordingsession.start_date %> and is currently scheduled to end at <%= @recordingsession.end_date %>.</li>
+</br>
+<h5 class= "text-center"> Client Details </h5>
+</br>
 <%= band_helper(@recordingsession.client) %>
 <%= drums_helper(@recordingsession.client) %>
   </p>

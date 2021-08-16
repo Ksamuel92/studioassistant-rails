@@ -1,20 +1,9 @@
 <h1 class="text-center"> <%= @studio.name %> </h1>
  
- <div class="mx-auto">
-
-
-    <ul class="list-group card-text">
-    <li class="list-group-item"> Email:  <%= @studio.email %> </li> 
-    <li class="list-group-item"> Address: <%= studio_address_helper(@studio) %> </li> 
-    <li class="list-group-item">DAW:  <%= @studio.daw %> </li> 
-    <%= li_rental_cost_helper(@studio) %> </li>
-    <%= li_description_helper(@studio) %> </li>
-  </ul>
-    </div>
-  </div>
+<%= render partial: "studio_info" %>
 
 <br>
  <div class = "btn-group mx-auto text-center">
-      <%= button_to 'Edit Studio', edit_studio_path(@studio), method: :get, class: 'btn btn-primary'%> 
-      <%= button_to 'Delete Studio', studio_path(@studio), method: :delete, :onclick => "return confirm('Deleting this studio will also delete all of its sessions. Are you sure?')", class: "btn btn-danger"%>
-    </div>
+    <%= button_to 'Edit Studio', edit_studio_path(@studio), method: :get, class: 'btn btn-primary'%> 
+    <%= button_to 'Delete Studio', studio_path(@studio), method: :delete, :onclick => "return confirm('Deleting this studio will also delete all of its sessions. Are you sure?')", class: "btn btn-danger"%>
+  </div>
