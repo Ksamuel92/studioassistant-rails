@@ -9,7 +9,7 @@ module StudiosHelper
 
   def li_description_helper(studio)
     if !studio.description.blank?
-      content_tag(:li, studio.description.to_s, class: "list-group-item")
+      content_tag(:li,"Description: #{studio.description.to_s}", class: "list-group-item")
     else
       content_tag(:li, "No Description Provided", class: "list-group-item disabled")
     end
